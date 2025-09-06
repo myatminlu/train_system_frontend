@@ -52,9 +52,9 @@ const LineManagementPage: React.FC = () => {
         { id: 3, name: 'State Railway of Thailand' },
         { id: 4, name: 'Airport Rail Link' }
       ]);
-    } catch (error) {
-      console.error('Error loading data:', error);
-      showToast('Failed to load data', 'error');
+    } catch (err) {
+      console.error('Error loading data:', err);
+      error('Failed to load data');
     }
   };
 
@@ -121,11 +121,11 @@ const LineManagementPage: React.FC = () => {
 
     try {
       await adminService.deleteLine(line.id);
-      showToast('Line deleted successfully', 'success');
+      success('Line deleted successfully');
       await loadData();
     } catch (error: any) {
       console.error('Error deleting line:', error);
-      showToast(error.response?.data?.detail || 'Failed to delete line', 'error');
+      error(error.response?.data?.detail || 'Failed to delete line');
     }
   };
 

@@ -75,8 +75,8 @@ const RegularUserManagementPage: React.FC = () => {
         search: searchTerm || undefined 
       });
       setUsers(data);
-    } catch (error) {
-      console.error('Error loading users:', error);
+    } catch (err) {
+      console.error('Error loading users:', err);
       error('Failed to load users');
     } finally {
       setLoading(false);
@@ -101,8 +101,8 @@ const RegularUserManagementPage: React.FC = () => {
       resetForm();
       await loadData();
     } catch (err: any) {
-      console.error('RegularUserManagementPage: Error saving user:', error);
-      console.error('RegularUserManagementPage: Error response:', error.response);
+      console.error('RegularUserManagementPage: Error saving user:', err);
+      console.error('RegularUserManagementPage: Error response:', err.response);
       error(err.response?.data?.detail || 'Failed to save user');
     } finally {
       setLoading(false);

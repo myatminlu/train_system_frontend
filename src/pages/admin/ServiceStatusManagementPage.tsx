@@ -46,7 +46,7 @@ const ServiceStatusManagementPage: React.FC = () => {
     line_id: '',
     station_id: '',
     status_type: 'delay',
-    severity: 'low' as const,
+    severity: 'low' as 'low' | 'medium' | 'high' | 'critical',
     message: '',
     start_time: new Date().toISOString().slice(0, 16),
     end_time: '',

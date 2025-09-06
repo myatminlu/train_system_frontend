@@ -91,7 +91,10 @@ const AdminDashboardPage: React.FC = () => {
         adminService.getCurrentPerformance(),
         adminService.getSystemAlerts(true, undefined),
         adminService.getUsers(0, 5),
-        adminService.getBookingAnalytics('2025-01-01', '2025-12-31'),
+        adminService.getBookingAnalytics({
+          date_from: '2025-01-01',
+          date_to: '2025-12-31'
+        }),
       ]);
 
       // Process dashboard data
